@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import Home from './pages/Home/Home';
+import Header from './shared/components/Header';
 
 
 class App extends Component {
@@ -16,16 +17,20 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container py-5 my-5 text-center" >
-        <p><Home /> </p>
-        <p><Home /> </p>
-        <Home name="Corne" place="Lagos"> Good lord</Home>
-        <p><Home /> </p>
-        <p><Home /> </p>
+      <div id="page-container">
+        <div id="content-wrap">
+          <Header />
+          <Home />
+        </div>
+        <footer className="bg" id="footer">
+          <div className="py-3 footer d-flex justify-content-center">
+            Designed by: <span className="ml-2">
+              <a target="_blank" className="text-green" href="https://twitter.com/Comlyboy"> Cornelius
+                    Okeke</a></span>
+          </div>
 
-        <button className="btn btn-success">switch name</button>
+        </footer>
       </div>
-
     );
   }
 
