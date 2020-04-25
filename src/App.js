@@ -1,34 +1,36 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 import './App.css';
 
 import Home from './pages/Home/Home';
-import Header from './shared/components/Header';
-
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import Country from './pages/Country/Country';
 
 class App extends Component {
   state = {
-    person: [
-      { name: 'Cornelius', place: 'Ogba' },
-      { name: 'Chiemerie', place: 'Ikeja' },
-      { name: 'Cornelius', place: 'Surulere' },
-    ]
+    title: 'Covid-19 global stats',
+    link: 'https://twitter.com/Comlyboy',
   }
 
   render() {
     return (
       <div id="page-container">
         <div id="content-wrap">
-          <Header />
-          <Home />
+          <Header title={this.state.title}></Header>
+          {/* <Home /> */}
+          {/* <Country></Country> */}
+
+          <BrowserRouter>
+            <div>
+              <Route path="/" exact component={Home} />
+              <Route path="/countries" component={Country} />
+            </div>
+          </BrowserRouter>
         </div>
         <footer className="bg" id="footer">
-          <div className="py-3 footer d-flex justify-content-center">
-            Designed by: <span className="ml-2">
-              <a target="_blank" className="text-green" href="https://twitter.com/Comlyboy"> Cornelius
-                    Okeke</a></span>
-          </div>
-
+          <Footer link={this.state.link}></Footer>
         </footer>
       </div>
     );

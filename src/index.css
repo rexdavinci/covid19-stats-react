@@ -27,6 +27,10 @@ a {
   border: rgba(0, 0, 255, 0) solid 1.5px !important;
 }
 
+.country-border {
+  border-top: #0d986e solid 2px !important;
+}
+
 .corona-border:hover {
   border: #117e5e solid 1.5px !important;
   transition: ease-in .3s;
