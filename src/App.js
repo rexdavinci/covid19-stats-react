@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import './App.css';
 
@@ -16,23 +16,25 @@ class App extends Component {
 
   render() {
     return (
-      <div id="page-container">
-        <div id="content-wrap">
-          <Header title={this.state.title}></Header>
-          {/* <Home /> */}
-          {/* <Country></Country> */}
+      <BrowserRouter>
+        <div id="page-container">
+          <div id="content-wrap">
+            <Header title={this.state.title}></Header>
+            {/* <Home /> */}
+            {/* <Country></Country> */}
 
-          <BrowserRouter>
-            <div>
-              <Route path="/" exact component={Home} />
-              <Route path="/countries" component={Country} />
-            </div>
-          </BrowserRouter>
+            <Switch>
+              <div>
+                <Route path="/" exact component={Home} />
+                <Route path="/countries" component={Country} />
+              </div>
+            </Switch>
+          </div>
+          <footer className="bg" id="footer">
+            <Footer link={this.state.link}></Footer>
+          </footer>
         </div>
-        <footer className="bg" id="footer">
-          <Footer link={this.state.link}></Footer>
-        </footer>
-      </div>
+      </BrowserRouter>
     );
   }
 
